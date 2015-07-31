@@ -1,4 +1,4 @@
-# tempdir
+# tempdir [![Circle CI](https://circleci.com/gh/vdemedes/tempdir.svg?style=svg)](https://circleci.com/gh/vdemedes/tempdir)
 
 Create a temporary directory.
 
@@ -22,6 +22,8 @@ let path = tempdir();
 
 
 ### Tests
+
+[![Circle CI](https://circleci.com/gh/vdemedes/tempdir.svg?style=svg)](https://circleci.com/gh/vdemedes/tempdir)
 
 ```
 $ make test
