@@ -15,9 +15,15 @@ $ npm install tempdir --save
 ```javascript
 const tempdir = require('tempdir');
 
-let path = tempdir();
+tempdir().then(
+  (path) => {
+    // e.g. path = /var/folders/y6/dn6f5hk50qq1167fvxv6vwrw0000gp/T/4d95a74b-9676-447d-ae08-fdeb6e281609
+  },
+  (error) => {
+    throw error;
+  }
+);
 
-// path = /var/folders/y6/dn6f5hk50qq1167fvxv6vwrw0000gp/T/4d95a74b-9676-447d-ae08-fdeb6e281609
 ```
 
 
