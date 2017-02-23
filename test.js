@@ -1,28 +1,13 @@
-'use strict';
+import {statSync as stat} from 'fs';
+import test from 'ava';
+import tempdir from '.';
 
-/**
- * Dependencies
- */
+test('create a directory', async t => {
+	const path = await tempdir();
+	t.true(stat(path).isDirectory());
+});
 
-const tempdir = require('./');
-const expect = require('chai').expect;
-const stat = require('fs').statSync;
-
-
-/**
- * Tests
- */
-
-describe ('tempdir', function () {
-
-  it ('create a temporary directory', function (done) {
-    tempdir().then(function (path) {
-      let isDirectory = stat(path).isDirectory();
-
-      expect(isDirectory).equal(true);
-
-      done();
-    });
-  });
-
+test('create a directory synchronously', t => {
+	const path = tempdir.sync();
+	t.true(stat(path).isDirectory());
 });

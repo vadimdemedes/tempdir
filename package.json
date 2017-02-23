@@ -2,37 +2,29 @@
   "name": "tempdir",
   "version": "1.0.0",
   "description": "Create a temporary directory",
-  "main": "index.js",
-  "scripts": {
-    "test": "make test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vdemedes/tempdir.git"
-  },
+  "author": "Vadim Demedes <vdemedes@gmail.com>",
+  "license": "MIT",
+  "repository": "vadimdemedes/tempdir",
   "keywords": [
     "tmp",
     "tmpdir",
     "mktemp"
   ],
-  "author": "Vadim Demedes <vdemedes@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/vdemedes/tempdir/issues"
+  "scripts": {
+    "test": "xo && ava"
   },
-  "homepage": "https://github.com/vdemedes/tempdir#readme",
-  "devDependencies": {
-    "bluebird": "^2.9.34",
-    "chai": "^3.2.0",
-    "make-lint": "vdemedes/make-lint",
-    "mocha": "^2.2.5"
-  },
-  "dependencies": {
-    "native-or-bluebird": "^1.2.0",
-    "os-tmpdir": "^1.0.1",
-    "uuid": "^2.0.1"
+  "engines": {
+    "node": ">= 4"
   },
   "files": [
     "index.js"
-  ]
+  ],
+  "dependencies": {
+    "pify": "^2.3.0",
+    "tempfile": "^1.1.1"
+  },
+  "devDependencies": {
+    "ava": "^0.18.2",
+    "xo": "^0.17.1"
+  }
 }

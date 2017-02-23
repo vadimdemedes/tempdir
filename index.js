@@ -1,37 +1,20 @@
 'use strict';
 
-/**
- * Dependencies
- */
+const fs = require('fs');
+const tempfile = require('tempfile');
+const pify = require('pify');
 
-const Promise = require('native-or-bluebird');
-const tmpdir = require('os-tmpdir');
-const mkdir = require('fs').mkdir;
-const join = require('path').join;
-const uuid = require('uuid').v4;
+const mkdir = pify(fs.mkdir);
 
+module.exports = () => {
+	const path = tempfile();
 
-/**
- * Expose fn
- */
+	return mkdir(path).then(() => path);
+};
 
-module.exports = tempdir;
+module.exports.sync = () => {
+	const path = tempfile();
+	fs.mkdirSync(path);
 
-
-/**
- * Create a temporary directory
- */
-
-function tempdir () {
-  return new Promise(function (resolve, reject) {
-    let path = join(tmpdir(), uuid());
-
-    mkdir(path, function (err) {
-      if (err) {
-        return reject(err);
-      }
-
-      resolve(path);
-    });
-  });
-}
+	return path;
+};
